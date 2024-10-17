@@ -1,25 +1,34 @@
-//your JS code here. If required.
-//your JS code here. If required.
-const buttons = document.querySelectorAll('.btn');
-const stopButton = document.querySelector('.stop');
 
-let currentSound = null;
+const buttons = document.querySelectorAll('.btn:not(.stop)');
+const stopButton = document.querySelector('.stop');
+let currentAudio;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (currentSound) {
-            currentSound.pause();
-            currentSound.currentTime = 0;
-        }
         const sound = button.getAttribute('data-sound');
-        currentSound = new Audio(`sounds/${sound}.mp3`);
-        currentSound.play();
+        playSound(sound);
     });
 });
 
-stopButton.addEventListener('click', () => {
-    if (currentSound) {
-        currentSound.pause();
-        currentSound.currentTime = 0;
+stopButton.addEventListener('click', stopSound);
+
+function playSound(sound) {
+    stopSound(); 
+
+
+    currentAudio = document.createElement('audio');
+    currentAudio.src = `./sounds/${sound}.mp3`;
+    currentAudio.setAttribute('controls', 'controls'); 
+    currentAudio.style.display = 'none'; 
+    document.body.appendChild(currentAudio);
+
+    currentAudio.play();
+}
+
+function stopSound() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio.remove(); 
     }
-});
+}

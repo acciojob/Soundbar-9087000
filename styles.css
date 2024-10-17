@@ -1,37 +1,36 @@
-/*  your css code here. If applicable */
-/*  your css code here. If applicable */
+
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #A882DD; 
     margin: 0;
-    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
 #buttons {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    gap: 20px;
 }
 
-.btn, .stop {
-    padding: 15px;
-    font-size: 16px;
+.btn {
+    background-color: #5B2D86; 
+    color: white;
     border: none;
+    padding: 20px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    font-size: 16px;
 }
 
 .btn:hover {
-    background-color: #dcdcdc;
+    background-color: #6C3D9B; 
 }
 
-.stop {
-    background-color: red;
-    color: white;
-}
 
 .stop:hover {
-    background-color: darkred;
+    background-color: #FF7F75; 
 }
